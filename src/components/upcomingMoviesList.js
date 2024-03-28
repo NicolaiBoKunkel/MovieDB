@@ -10,11 +10,6 @@ function UpcomingMovies() {
   } else if (error) {
     content = <div>Error loading movies.</div>;
   } else {
-    const currentDate = new Date().toISOString().split('T')[0]; 
-    const upcomingMovies = data.results.filter(movie => {
-      return movie.release_date >= currentDate; 
-    });
-
     content = data.results.map(movie => (
       <MovieCard key={movie.id} movie={movie} />
     ));

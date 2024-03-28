@@ -1,7 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom';
 
 import UpcomingMovies from './components/upcomingMoviesList';
-
 import PopularMoviesList from './components/popularMoviesList';
 import HighestRatedMovieList from './components/highestRatedMoviesList';
 import MovieImg from './assets/Image/movie_black2.jpg';
@@ -30,6 +29,7 @@ function App() {
             <Route path='/popular' element={<PopularMoviesList/>} />    
             <Route path='/highest-rated' element={<HighestRatedMovieList/>} />
             <Route path='/upcoming' element={<UpcomingMovies/>} />
+
         </Routes>
 
 
