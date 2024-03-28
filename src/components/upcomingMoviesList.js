@@ -10,7 +10,7 @@ function UpcomingMovies() {
   } else if (error) {
     content = <div>Error loading movies.</div>;
   } else {
-    content = data.results.map(movie => (
+    content = data.results.filter(movie=>movie.poster_path).map(movie => (
       <MovieCard key={movie.id} movie={movie} />
     ));
   }

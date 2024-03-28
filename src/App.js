@@ -1,5 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 
+import PopularTvShowsList from './components/popularTvShows';
+
 import UpcomingMovies from './components/upcomingMoviesList';
 import PopularMoviesList from './components/popularMoviesList';
 import HighestRatedMovieList from './components/highestRatedMoviesList';
@@ -19,6 +21,9 @@ function App() {
             <Link to='/highest-rated' className="nav-item nav-link">Highest Rated</Link>
             <Link to='/upcoming' className="nav-item nav-link">Upcoming</Link>
 
+            <Link to='/Shows' className="nav-item nav-link">Popular Shows</Link>
+
+
           </nav>
         </div>
           <span className='h1'>React Moviefinder <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75"/></span>
@@ -29,6 +34,9 @@ function App() {
             <Route path='/popular' element={<PopularMoviesList/>} />    
             <Route path='/highest-rated' element={<HighestRatedMovieList/>} />
             <Route path='/upcoming' element={<UpcomingMovies/>} />
+
+            <Route path='/Shows' element={<PopularTvShowsList/>} />    
+
 
         </Routes>
 

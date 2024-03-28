@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const currentDate = new Date().toISOString().split('T')[0]; 
 
 const nextMonthDate = new Date();
-nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
+nextMonthDate.setMonth(nextMonthDate.getMonth() + 5);
 const nextMonth = nextMonthDate.toISOString().split('T')[0];
 
 const moviesApi = createApi({
@@ -42,9 +42,9 @@ const moviesApi = createApi({
         query: () => ({
           url: 'discover/movie',
           params: {
-            'release_date.gte': currentDate,
-            'release_date.lte': nextMonth,
-            sort_by: 'release_date.desc',
+            'primary_release_date.gte': currentDate,
+            'primary_release_date.lte': nextMonth,
+            sort_by: 'primary_release_date.asc',
 
            api_key: 'e46278258cc52ec12ec6d0d0582c89b7'
           },
@@ -52,11 +52,22 @@ const moviesApi = createApi({
         }),
       }),
 
-
+      fetchPopularTvShows: builder.query({
+        query: () => {
+          return {
+            url: 'discover/tv',
+            params: {
+              sort_by: 'popularity.desc',
+              api_key: 'e46278258cc52ec12ec6d0d0582c89b7'
+            },
+            method: 'GET',
+          };
+        },
+      }),
 
     };
   },
 });
 
-export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchUpcomingMoviesQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchUpcomingMoviesQuery, useFetchPopularTvShowsQuery} = moviesApi;
 export { moviesApi };
