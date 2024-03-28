@@ -65,9 +65,22 @@ const moviesApi = createApi({
         },
       }),
 
+      fetchSearchMovie: builder.query({
+        query: (searchTerm) => {
+          return {
+            url: 'search/movie',
+            params: {
+              query: searchTerm,
+              api_key: 'e46278258cc52ec12ec6d0d0582c89b7'
+            },
+            method: 'GET',
+          };
+        },
+      }),  
+
     };
   },
 });
 
-export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchUpcomingMoviesQuery, useFetchPopularTvShowsQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchUpcomingMoviesQuery, useFetchPopularTvShowsQuery, useFetchSearchMovieQuery} = moviesApi;
 export { moviesApi };

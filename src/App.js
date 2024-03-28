@@ -1,5 +1,8 @@
 import { Routes, Route, Link } from 'react-router-dom';
 
+import SearchMovie from './components/searchMovie';
+import SearchedMovieList from './components/searchedMovieList';
+
 import PopularTvShowsList from './components/popularTvShows';
 
 import UpcomingMovies from './components/upcomingMoviesList';
@@ -27,7 +30,7 @@ function App() {
           </nav>
         </div>
           <span className='h1'>React Moviefinder <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75"/></span>
-      <span className="d-flex justify-content-between p-0">This small App demonstrates React, Redux-Toolkit, RTK Query and React-Router</span>
+      <span className="d-flex justify-content-between p-0">This small App demonstrates React, Redux-Toolkit, RTK Query and React-Router<SearchMovie/></span>
         </div>
         <Routes>
             <Route path='/' element={<Home/>} />  
@@ -36,6 +39,8 @@ function App() {
             <Route path='/upcoming' element={<UpcomingMovies/>} />
 
             <Route path='/Shows' element={<PopularTvShowsList/>} />    
+
+            <Route path='/searchedMovie' element={<SearchedMovieList/>} /> 
 
 
         </Routes>
