@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const currentDate = new Date().toISOString().split('T')[0]; 
 
 const nextMonthDate = new Date();
-nextMonthDate.setMonth(nextMonthDate.getMonth() + 5);
-const nextMonth = nextMonthDate.toISOString().split('T')[0];
+//nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
+//const nextMonth = nextMonthDate.toISOString().split('T')[0];
 
 //createApi fra RTK Query til defination af endpoints 
 const moviesApi = createApi({
@@ -44,7 +44,7 @@ const moviesApi = createApi({
           url: 'discover/movie',
           params: {
             'primary_release_date.gte': currentDate,
-            'primary_release_date.lte': nextMonth,
+            //'primary_release_date.lte': nextMonth,
             sort_by: 'primary_release_date.asc',
 
            api_key: 'e46278258cc52ec12ec6d0d0582c89b7'
