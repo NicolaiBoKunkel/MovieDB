@@ -12,6 +12,7 @@ function SearchMovie() {
     console.log(event.target.value);
     dispatch(changeSearchTerm(event.target.value));
   }
+
   const handleSubmit = (event) => {
                  //dette for at undgå at Browseren automatisk prøver et udføre et submit  
                  //dispatch(changeSearchTerm(searchTerm));

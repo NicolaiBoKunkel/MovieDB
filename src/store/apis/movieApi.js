@@ -5,6 +5,7 @@ const nextMonthDate = new Date();
 nextMonthDate.setMonth(nextMonthDate.getMonth() + 5);
 const nextMonth = nextMonthDate.toISOString().split('T')[0];
 
+//createApi fra RTK Query til defination af endpoints 
 const moviesApi = createApi({
   reducerPath: 'movies',
   baseQuery: fetchBaseQuery({
@@ -82,5 +83,6 @@ const moviesApi = createApi({
   },
 });
 
+//Export hooks til andre komponenter
 export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchUpcomingMoviesQuery, useFetchPopularTvShowsQuery, useFetchSearchMovieQuery} = moviesApi;
 export { moviesApi };

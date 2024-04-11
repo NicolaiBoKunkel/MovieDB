@@ -3,7 +3,7 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { moviesApi } from './apis/movieApi';
 import { searchMovieReducer, changeSearchTerm } from './searchMovieSlice';
 
-
+//store configuration
 export const store = configureStore({
   reducer: {
     [moviesApi.reducerPath]: moviesApi.reducer, //dette er en mere sikker måde, ungår "typo's"
