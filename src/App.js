@@ -29,7 +29,7 @@ function App() {
 
           </nav>
         </div>
-          <span className='h1'>React Moviefinder <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75"/></span>
+          <span className='h1'>React Moviefinder <img className="rounded-circle movie_img m-3" src={MovieImg} width="75" height="75"/></span>
       <span className="d-flex justify-content-between p-0">This small App demonstrates React, Redux-Toolkit, RTK Query and React-Router<SearchMovie/></span>
         </div>
         <Routes>
