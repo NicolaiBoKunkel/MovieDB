@@ -21,8 +21,8 @@ function SearchMovie() {
   }
   return (
    <form onSubmit={handleSubmit}>
-     <label >Search movies</label>
-     <input className="input ml-2" value={searchTerm} onChange={handleSearchTermChange}/>
+     <label >Search</label>
+     <input className="input ml-2" placeholder="Search for movies..." value={searchTerm} onChange={handleSearchTermChange}/>
      </form>    
   );
 }

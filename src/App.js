@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom'; //tilgå routing til links
 
 import SearchMovie from './components/searchMovie';
 import SearchedMovieList from './components/searchedMovieList';

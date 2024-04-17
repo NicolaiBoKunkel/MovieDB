@@ -1,11 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit'; 
 
-const searchMovieSlice = createSlice({
+const searchMovieSlice = createSlice({//createSlice med redux toolkit
     name: 'searchMovie',
     initialState: {
         searchTerm: ''        
     },
-    reducers:{
+    reducers:{  //opdater state efter searchterm
         changeSearchTerm(state, action){
             state.searchTerm = action.payload;
         }     

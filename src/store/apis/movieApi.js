@@ -1,9 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-const currentDate = new Date().toISOString().split('T')[0]; 
 
-const nextMonthDate = new Date();
+
+//const currentDate = new Date().toISOString().split('T')[0]; 
+//const nextMonthDate = new Date();
 //nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
 //const nextMonth = nextMonthDate.toISOString().split('T')[0];
+
+function getTomorrowDate() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return tomorrow.toISOString().split('T')[0];
+}
 
 //createApi fra RTK Query til defination af endpoints 
 const moviesApi = createApi({
@@ -41,15 +48,14 @@ const moviesApi = createApi({
       
       fetchUpcomingMovies: builder.query({
         query: () => ({
-          url: 'discover/movie',
-          params: {
-            'primary_release_date.gte': currentDate,
-            //'primary_release_date.lte': nextMonth,
-            sort_by: 'primary_release_date.asc',
-
-           api_key: 'e46278258cc52ec12ec6d0d0582c89b7'
-          },
-          method: 'GET',
+            url: 'discover/movie',
+            params: {
+                'primary_release_date.gte': getTomorrowDate(),
+                'primary_release_date.lte': getTomorrowDate(),
+                sort_by: 'primary_release_date.asc',
+                api_key: 'e46278258cc52ec12ec6d0d0582c89b7'
+            },
+            method: 'GET',
         }),
       }),
 
@@ -83,6 +89,6 @@ const moviesApi = createApi({
   },
 });
 
-//Export hooks til andre komponenter
+//Export hooks til andre komponenter med RTK-Query
 export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchUpcomingMoviesQuery, useFetchPopularTvShowsQuery, useFetchSearchMovieQuery} = moviesApi;
 export { moviesApi };

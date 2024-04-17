@@ -1,13 +1,13 @@
 import { useFetchPopularMoviesQuery } from "../store";
 import MovieCard from "./movieCard"
 
-function PopularMoviesList() {                                   //Bemærk Query-function kaldes automatisk når komponenten bliver displayed
+function PopularMoviesList() {     //kalder hook til fetch data   //Bemærk Query-function kaldes automatisk når komponenten bliver displayed
   const {data, error, isFetching } = useFetchPopularMoviesQuery();    //kaldet vil straks hente data i et result-objekt, som vi "destructure" til data, error og isLoading
                                                                  //Bemærk Mutation-function returnere et array med en function, som kan kaldes når data skal ændres
   //console.log(data, error, isFetching);                        //samt et objekt results der er meget tilsvarende det der returneres fra et Query-function kald
                                                                  //til start er results objektet "uinitialiseret", efter kaldet af funktionen vil det indeholde mange flere properties
                                                                  //med relevante værdier fx data, isSucces/isError mm
-let content;
+let content;  //render indhold efter state
   if (isFetching) {
     content = <div>Loading;</div>
   } else if (error) {
